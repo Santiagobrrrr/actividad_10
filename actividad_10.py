@@ -5,17 +5,27 @@ def products_add(num_products):
         print(f"\nProducto: {i + 1}")
 
         while True:
-            code_product = input("Ingrese el código del producto: ")
+            code_product = input("Ingrese el código del producto: ").lower()
             if code_product not in products:
                 break
             else:
                 print(f"El código '{code_product}' ya está registrado. Intente con otro.")
 
-        name_product = input(f"Ingrese el nombre del producto: ")
-        category_product = input(f"Ingrese la categoría del producto: ")
-        size_product = input(f"Ingrese el tamaño del producto: ")
-        price_product = int(input(f"Ingrese el precio unitario del producto: "))
-        stock_product = int(input(f"Ingrese el stock del producto: "))
+        name_product = input(f"Ingrese el nombre del producto (playera, pantalón, etc.): ")
+        category_product = input(f"Ingrese la categoría del producto (hombre, masculino, niño): ")
+        size_product = input(f"Ingrese el tamaño del producto (xs, s, m, l, xl, xxl): ")
+        while True:
+            price_product = int(input(f"Ingrese el precio unitario del producto: Q"))
+            if price_product > 0:
+                break
+            else:
+                print(f"El producto debe de ser mayor a Q0")
+        while True:
+            stock_product = int(input(f"Ingrese el stock del producto: "))
+            if stock_product > 0:
+                break
+            else:
+                print(f"El producto debe ser positivo")
 
         products[code_product] = {
             "name": name_product,
@@ -40,9 +50,16 @@ while True:
             num_products = int(input(f"\n¿Qué cantidad de productos va a ingresar?: "))
             products_add(num_products)
             print(products)
-            
+
         case "2":
             print(f"\nInventario completo")
+            for code_product, data in products.items():
+                print(f"\nCódigo de Producto: {code_product}")
+                print(f"Nombre: {data['name']}")
+                print(f"Categoria: {data['category']}")
+                print(f"Size: {data['size']}")
+                print(f"Price: {data['price']}")
+                print(f"Stock: {data['stock']}")
 
         case "3":
             print(f"\nBuscar producto")
