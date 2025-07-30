@@ -1,3 +1,5 @@
+from unicodedata import category
+
 products = {}
 
 def products_add(num_products):
@@ -84,6 +86,12 @@ while True:
 
         case "5":
             print(f"\nProducto por categoria")
+            category_user = input(f"Ingrese su categoria: ").lower()
+            count = 0
+            for data in products.values():
+                if category_user in data['category']:
+                    count += 1
+            print(f"\nTotal de productos para {category_user}: {count}")
 
         case "6":
             print(f"\nSaliendo del inventario")
