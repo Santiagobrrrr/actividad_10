@@ -12,7 +12,7 @@ def products_add(num_products):
                 print(f"El código '{code_product}' ya está registrado. Intente con otro.")
 
         name_product = input(f"Ingrese el nombre del producto (playera, pantalón, etc.): ")
-        category_product = input(f"Ingrese la categoría del producto (hombre, masculino, niño): ")
+        category_product = input(f"Ingrese la categoría del producto (hombre, mujer, niño): ").lower()
         size_product = input(f"Ingrese el tamaño del producto (xs, s, m, l, xl, xxl): ")
         while True:
             price_product = int(input(f"Ingrese el precio unitario del producto: Q"))
@@ -77,6 +77,10 @@ while True:
 
         case "4":
             print(f"\nPrecio del inventario")
+            suma = 0
+            for data in products.values():
+                suma += data['price'] * data['stock']
+            print(f"\nTotal de inventario Q{suma}")
 
         case "5":
             print(f"\nProducto por categoria")
