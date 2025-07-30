@@ -63,6 +63,17 @@ while True:
 
         case "3":
             print(f"\nBuscar producto")
+            search_product = input(f"Ingrese el código del producto: ").lower()
+            if search_product in products:
+                product = products[search_product]
+                print(f"Producto: {product['name']} ")
+                print(f"Categoría: {product['category']}")
+                print(f"Tamaño: {product['size']}")
+                print(f"Precio: Q{product['price']}")
+                print(f"Stock: {product['stock']}")
+
+            else:
+                print(f"El producto con ese código no existe")
 
         case "4":
             print(f"\nPrecio del inventario")
