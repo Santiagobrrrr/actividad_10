@@ -61,3 +61,17 @@ for data in products.values():
 print(f"\n***********************************")
 print(f"Precio del inventario: Q{suma}")
 print(f"***********************************")
+
+while True:
+    category_user = input(f"\nIngrese categoría del producto: ").lower()
+    count = 0
+    for data in products.values():
+        if category_user == data['category']:
+             count += 1
+
+    if count >0:
+        print(f"\nTotal de productos para {category_user}: {count}")
+        break
+
+    else:
+        print(f"\nNo hay productos para {category_user}, intentelo de nuevo")
