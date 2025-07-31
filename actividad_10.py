@@ -1,5 +1,3 @@
-from unicodedata import category
-
 products = {}
 
 def products_add(num_products):
